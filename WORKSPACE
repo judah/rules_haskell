@@ -97,7 +97,7 @@ stack_snapshot(
         "proto-lens-protoc",
         "lens-family",
     ],
-    snapshot = "lts-14.4",
+    snapshot = "nightly-2019-12-08",
     tools = [
         "@alex",
         "@happy",
