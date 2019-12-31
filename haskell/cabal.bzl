@@ -920,6 +920,7 @@ haskell_library(
 haskell_cabal_library(
     name = "{name}",
     version = "{version}",
+    haddock = {haddock},
     flags = {flags},
     srcs = glob(["{dir}/**"]),
     deps = {deps},
@@ -930,6 +931,7 @@ haskell_cabal_library(
 """.format(
                     name = package.name,
                     version = package.version,
+                    haddock = repr(repository_ctx.attr.haddock),
                     flags = package.flags,
                     dir = package.sdist,
                     deps = package.deps + [
@@ -959,6 +961,10 @@ _stack_snapshot = repository_rule(
         "packages": attr.string_list(),
         "vendored_packages": attr.label_keyed_string_dict(),
         "flags": attr.string_list_dict(),
+        "haddock": attr.bool(
+            default = True,
+            doc = "Whether to generate haddock documentation",
+        ),
         "extra_deps": attr.label_keyed_string_dict(),
         "tools": attr.label_list(),
         "stack": attr.label(),
