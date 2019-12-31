@@ -34,6 +34,7 @@ haskell_cabal_library(
         "second-lib.cabal",
     ],
     version = "0.1.0.0",
+    haddock = False,
 )
 
 haskell_test(
